@@ -28,7 +28,7 @@ export default function QueryPanel() {
     setQuery(selectedQuery?.query || "");
   }, [selectedQuery]);
 
-  // todo - no api integration done here
+
   const updateQueryName = (name: string) => {
     setQueryName(name);
 
@@ -45,6 +45,10 @@ export default function QueryPanel() {
 
       setSelectedQuery(updatedQueryObj);
     }
+  }
+
+  const cancelQuery = () => {
+    alert('query cancelled called ...')
   }
 
   const runQuery = (queryVal?: string) => {
@@ -145,20 +149,32 @@ export default function QueryPanel() {
         />
       
       <div className="flex items-center justify-between mt-4">
-        <Button
-          type="button"
-          variant={ !isPending && selectedQuery?.status=="running" ? "destructive" : "outline" }
-          size="sm"
-          onClick={() => runQuery()}
-          disabled={isPending}
-        >
-          {isPending ? (
-            <Loader2 className="h-4 w-4 animate-spin" />
-          ) : selectedQuery?.status=="running" ? (
-            <CircleStopIcon className="h-4 w-4"/>
-          ) : <PlayIcon className="h-4 w-4" />}
-          { !isPending && selectedQuery?.status=="running" ? "Cancel" : "Run"}
-        </Button>
+        {selectedQuery?.status === "running" ? (
+          <Button
+            type="button"
+            variant="destructive"
+            size="sm"
+            onClick={cancelQuery}
+          >
+            <CircleStopIcon className="h-4 w-4" />
+            Cancel
+          </Button>
+        ) : (
+          <Button
+            type="button"
+            variant="outline"
+            size="sm"
+            onClick={() => runQuery()}
+            disabled={isPending}
+          >
+            {isPending ? (
+              <Loader2 className="h-4 w-4 animate-spin" />
+            ) : (
+              <PlayIcon className="h-4 w-4" />
+            )}
+            Run
+          </Button>
+        )}
       </div>
     </div>
   );
