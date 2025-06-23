@@ -22,7 +22,7 @@ export function Breadcrumbs() {
       { label: "Analyze", href: "/analyze/query" },
       { label: "Query" },
     ]);
-  }, []);
+  });
 
   return (
     <Breadcrumb>

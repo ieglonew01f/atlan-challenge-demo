@@ -20,7 +20,7 @@ export function CopyLinkButton({ link, isDisabled }: CopyLinkButtonProps) {
       setCopied(true);
       toast("Link copied!");
       setTimeout(() => setCopied(false), 1500);
-    } catch (err) {
+    } catch {
       toast("Failed to copy");
     }
   };
