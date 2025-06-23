@@ -46,6 +46,8 @@ export default function HistoryPanel({ queryId }: { queryId?: string }) {
         { label: "Query", href: "/analyze/query" },
         { label: queryId },
       ]);
+    } else if (queryData?.length && !queryId) {
+      setSelectedQuery(queryData[0]);
     }
   }, [queryData]);
 
