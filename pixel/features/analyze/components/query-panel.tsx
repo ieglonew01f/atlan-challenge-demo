@@ -143,6 +143,7 @@ export default function QueryPanel() {
         value={selectedQuery?.query || ""}
         onChange={setQuery}
         isMaximized={isMaximized}
+        onClose={() => setIsMaximized(false)}
         onRunShortcut={(val: string) => {
           runQuery(val);
         }}
