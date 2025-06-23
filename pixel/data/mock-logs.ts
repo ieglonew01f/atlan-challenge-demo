@@ -1,0 +1,80 @@
+import { QueryExecutionLog } from "@/types/query-logs";
+
+export const MOCK_QUERY_LOGS: QueryExecutionLog[] = [
+  {
+    timestamp: "2025-06-22T10:00:00.000Z",
+    level: "INFO",
+    stage: "Planner",
+    message: "Parsing SQL query.",
+    durationMs: 50,
+  },
+  {
+    timestamp: "2025-06-22T10:00:00.050Z",
+    level: "INFO",
+    stage: "Planner",
+    message: "Analyzing logical plan.",
+    durationMs: 120,
+  },
+  {
+    timestamp: "2025-06-22T10:00:00.170Z",
+    level: "INFO",
+    stage: "Optimizer",
+    message: "Applying 17 rule-based optimizations.",
+    durationMs: 300,
+  },
+  {
+    timestamp: "2025-06-22T10:00:00.470Z",
+    level: "INFO",
+    stage: "Physical Planner",
+    message: "Choosing execution strategy: BroadcastHashJoin.",
+    durationMs: 110,
+  },
+  {
+    timestamp: "2025-06-22T10:00:00.170Z",
+    level: "ERROR",
+    stage: "Executor",
+    message: "Running out of memory on executor 3.",
+    durationMs: 300,
+  },
+  {
+    timestamp: "2025-06-22T10:00:00.580Z",
+    level: "INFO",
+    stage: "Execution",
+    message: "Stage 1 - Reading from HDFS path /warehouse/user_data/part-00000",
+    durationMs: 400,
+  },
+  {
+    timestamp: "2025-06-22T10:00:00.980Z",
+    level: "INFO",
+    stage: "Execution",
+    message: "Stage 1 completed successfully with 16 tasks.",
+    durationMs: 1000,
+  },
+  {
+    timestamp: "2025-06-22T10:00:01.980Z",
+    level: "INFO",
+    stage: "Execution",
+    message: "Stage 2 - Shuffle read/write started.",
+    durationMs: 700,
+  },
+  {
+    timestamp: "2025-06-22T10:00:02.680Z",
+    level: "WARN",
+    stage: "Execution",
+    message: "Spill to disk due to memory pressure on executor 5.",
+  },
+  {
+    timestamp: "2025-06-22T10:00:03.000Z",
+    level: "INFO",
+    stage: "Execution",
+    message: "Stage 2 completed successfully with 8 tasks.",
+    durationMs: 1320,
+  },
+  {
+    timestamp: "2025-06-22T10:00:04.320Z",
+    level: "INFO",
+    stage: "Result Writer",
+    message: "Writing results to /tmp/query-output-20250622/result.parquet",
+    durationMs: 150,
+  },
+];
