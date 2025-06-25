@@ -73,14 +73,14 @@ export function CsvResultsTable({ csvText, pageSize = 10 }: CsvResultsTableProps
   }
 
   return (
-    <div className="ml-4 mr-4 text-sm">
+    <div className="w-full px-4 text-sm">
       <div className="border border-border rounded-md overflow-x-auto">
-        <Table className="min-w-fit w-full">
+        <Table className="w-full table-auto">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id}>
+                  <TableHead key={header.id} className="break-words whitespace-normal">
                     {flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 ))}
@@ -91,7 +91,7 @@ export function CsvResultsTable({ csvText, pageSize = 10 }: CsvResultsTableProps
             {table.getRowModel().rows.map((row) => (
               <TableRow key={row.id}>
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id}>
+                  <TableCell key={cell.id} className="break-words whitespace-normal">
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
