@@ -1,23 +1,17 @@
 "use client";
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import { Filter, MoreVertical, PlusIcon, Search } from "lucide-react";
+import { Filter, PlusIcon, Search } from "lucide-react";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useAddQueryToHistory, useDeleteQueryFromHistory, useQueryHistory } from "../api/query-history";
 import { useEffect, useMemo, useState } from "react";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { HistoryItem } from "./history-item";
 import { HistoryItemSkeleton } from "./history-item-skeleton";
 import { Input } from "@/components/ui/input";
 import { QueryHistory } from "@/types/query-history";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { StatusDot } from "@/components/common/status-dot";
 import { useBreadcrumbContext } from "@/providers/breadcrumb-context-provider";
 import { useQueryContext } from "../providers/query-context-provider";
 import { v4 as uuidv4 } from "uuid";
@@ -186,59 +180,18 @@ export default function HistoryPanel({ queryId }: { queryId?: string }) {
             Failed to load query history. Please try again.
           </div>
         )}
-
         {filteredData.map((item) => {
           const isActive = selectedQuery?.id === item.id;
 
           return (
-            <div
+            <HistoryItem
               key={item.id}
-              className={`
-                rounded p-3 mb-2 transition cursor-pointer relative 
-                hover:bg-muted/50
-                ${isActive ? "border-l-2 border-blue-500 bg-muted/40" : "border-l-2 bg-muted/30"}
-              `}
-              onClick={() => setSelectedQuery(item)}
-            >
-              <div className="flex justify-between items-center text-xs font-medium">
-                <div className="flex items-center gap-1">
-                  <StatusDot status={item.status} />
-                  <span title={item.name} className="text-primary truncate max-w-[150px] block">{item.name}</span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <Badge variant="outline" className="text-[10px]">
-                    {item.cluster}
-                  </Badge>
-
-                  {/* ... menu */}
-                  <DropdownMenu>
-                    <DropdownMenuTrigger asChild>
-                      <button className="hover:opacity-80">
-                        <MoreVertical className="h-4 w-4 text-muted-foreground" />
-                      </button>
-                    </DropdownMenuTrigger>
-                    <DropdownMenuContent align="end" sideOffset={4} className="w-32">
-                      <DropdownMenuItem onClick={() => cloneQuery(item)}>
-                        Clone
-                      </DropdownMenuItem>
-                      <DropdownMenuItem
-                        onClick={() => deleteQuery(item.id)}
-                        className="text-red-600"
-                      >
-                        Delete
-                      </DropdownMenuItem>
-                    </DropdownMenuContent>
-                  </DropdownMenu>
-                </div>
-              </div>
-
-              <p className="text-xs mt-1 text-muted-foreground line-clamp-2">{item.query}</p>
-
-              <div className="text-[10px] mt-1 text-muted-foreground italic">
-                {item.user} &bull; {item.date}
-              </div>
-            </div>
+              item={item}
+              isActive={isActive}
+              onSelect={setSelectedQuery}
+              onClone={cloneQuery}
+              onDelete={deleteQuery}
+            />
           );
         })}
       </ScrollArea>
