@@ -10,7 +10,7 @@ This is a web-based SQL playground built as part of the Atlan Frontend Engineeri
 
 ## 📽️ Demo Video (Under 3 minutes)
 
-🎥 [Walkthrough on YouTube](https://your-demo-video-link)
+🎥 [Walkthrough Demo](https://drive.google.com/file/d/1O68RcoXmCTsUKPaJHCpXTGZsbBgxo3qu/view?usp=sharing)
 
 ---
 
