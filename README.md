@@ -80,22 +80,21 @@ pixel/
 ├── types/                  # TypeScript types
 ```
 
-## 🧪 Performance
+## ScreenShot
+![Alt Text](demo-screen-1.png)
 
-### ⏱️ Load Time
+## 🧪 Performance - Benchmarked using lighthouse
+![Alt text](lighthouse.png)
 
-- Initial Page Load: ~650ms (measured via Chrome Lighthouse)
-- Editor Ready Time: ~200ms
+## ⚡ Performance Optimizations
+- Preconnect for CDN saving ~100ms
 
 ### 🔄 Optimizations
-
 - Lazy loading Monaco editor
-- Code splitting via Next.js dynamic imports
 - Virtualized rendering of table rows to support large datasets (tested with 10K+ rows)
 - Cached queries and results with `react-query`
 
 ### 🧠 Additional Ideas for Extension (Not Implemented, not enough time)
-
 - Query collections
 - Real-time collaboration
 - Query versioning and git-like diff

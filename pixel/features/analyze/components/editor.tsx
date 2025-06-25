@@ -3,9 +3,14 @@
 import { useCallback, useEffect, useRef } from "react";
 
 import { Button } from "@/components/ui/button";
-import Editor from "@monaco-editor/react";
 import { Minimize2Icon } from "lucide-react";
 import { SQL_KEYWORDS } from "@/constants/sql-keywords";
+import dynamic from "next/dynamic";
+
+const MonacoEditor = dynamic(() => import("@monaco-editor/react"), {
+  ssr: false,
+  loading: () => <div className="p-4 text-xs text-muted-foreground">Loading editor...</div>,
+});
 
 export function QueryEditor({
   value,
@@ -48,7 +53,7 @@ export function QueryEditor({
   // your normal editor container
   const EditorBox = (
     <div className="w-full h-full">
-      <Editor
+      <MonacoEditor
         height="100%"
         defaultLanguage="sql"
         value={value}
