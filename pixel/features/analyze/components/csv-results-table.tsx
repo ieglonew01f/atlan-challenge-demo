@@ -80,7 +80,7 @@ export function CsvResultsTable({ csvText, pageSize = 10 }: CsvResultsTableProps
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => (
-                  <TableHead key={header.id} className="break-words whitespace-normal">
+                  <TableHead key={header.id}>
                     {flexRender(header.column.columnDef.header, header.getContext())}
                   </TableHead>
                 ))}
@@ -91,7 +91,7 @@ export function CsvResultsTable({ csvText, pageSize = 10 }: CsvResultsTableProps
             {table.getRowModel().rows.map((row) => (
               <TableRow key={row.id}>
                 {row.getVisibleCells().map((cell) => (
-                  <TableCell key={cell.id} className="break-words whitespace-normal">
+                  <TableCell key={cell.id}>
                     {flexRender(cell.column.columnDef.cell, cell.getContext())}
                   </TableCell>
                 ))}
