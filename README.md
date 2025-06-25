@@ -2,6 +2,8 @@
 
 This is a web-based SQL playground built as part of the Atlan Frontend Engineering Task. It allows users to input, run, and manage SQL queries, simulating the query experience, The UI is inspired by real-world tools used by data analysts.
 
+![Alt Text](demo-screen-1.png)
+
 ## 🚀 Live Demo
 
 🔗 [Deployed on Vercel](https://atlan-challenge-demo.vercel.app/analyze/query)
@@ -79,9 +81,6 @@ pixel/
 ├── public/                 # Static assets
 ├── types/                  # TypeScript types
 ```
-
-## ScreenShot
-![Alt Text](demo-screen-1.png)
 
 ## 🧪 Performance - Benchmarked using lighthouse
 ![Alt text](lighthouse.png)
