@@ -36,7 +36,7 @@ This is a web-based SQL playground built as part of the Atlan Frontend Engineeri
 - 💾 **Downloadable Results** (CSV export)
 - 💡 **Execution Indicators** (active/running status, error state)
 
-### ⚙️ Advanced Features
+### 💎 Advanced Features
 
 - 🧠 **AI Query Insight Agent** (Suggests optimization tips for queries)
 - 🎯 **Runtime Selector** (Choose between environments like Acme Prod, Spark, etc.)
@@ -55,7 +55,30 @@ This is a web-based SQL playground built as part of the Atlan Frontend Engineeri
 - 🗑️ **Delete Query**
 - 🎨 **SQL Syntax Highlighting**
 
----
+## 🗂️ Folder Structure
+
+```bash
+pixel/
+├── app/                    # Next.js app entry
+├── components/
+│   ├── common/             # Shared components (breadcrumbs, loading skeletons, status indicators)
+│   └── ui/                 # UI building blocks from shadcn/ui
+├── constants/              # App-wide constants
+├── data/                   # Mock datasets and query results
+├── features/
+│   ├── analyze/            # Query writing and result display
+│   │   ├── api/            # Mock API handlers
+│   │   ├── components/     # Editor, result table, toolbars, history panel
+│   │   ├── lib/            # Utility logic
+│   │   ├── providers/      # Analyze-specific context/state
+│   ├── chat/               # AI assistant (query insight agent) - NOT IMPLEMENTED
+│   └── common/             # Shared between features
+├── hooks/                  # Custom React hooks
+├── lib/                    # Utility functions and integrations
+├── providers/              # Global app-level context providers
+├── public/                 # Static assets
+├── types/                  # TypeScript types
+```
 
 ## 🧪 Performance
 
@@ -70,3 +93,10 @@ This is a web-based SQL playground built as part of the Atlan Frontend Engineeri
 - Code splitting via Next.js dynamic imports
 - Virtualized rendering of table rows to support large datasets (tested with 10K+ rows)
 - Cached queries and results with `react-query`
+
+### 🧠 Additional Ideas for Extension (Not Implemented, not enough time)
+
+- Query collections
+- Real-time collaboration
+- Query versioning and git-like diff
+- Chat interface for quering in natural languages eg: "Give me sales report from past 30 days"
