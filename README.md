@@ -37,6 +37,7 @@ This is a web-based SQL playground built as part of the Atlan Frontend Engineeri
 - 🕒 **Query History Viewer** with timestamp and user metadata
 - 💾 **Downloadable Results** (CSV export)
 - 💡 **Execution Indicators** (active/running status, error state)
+- 🎹 **Keyboard Shortcuts** CMD/CTR + Enter to run query 
 
 ### 💎 Advanced Features
 
@@ -82,7 +83,11 @@ pixel/
 ├── types/                  # TypeScript types
 ```
 
-## 🧪 Performance - Benchmarked using lighthouse
+## 🧪 Performance - Benchmarked using lighthouse and chrome dev tools
+###  Page load time measured using chrome dev tools
+![Alt text](loadtime.png)
+
+### Lighthouse score
 ![Alt text](lighthouse.png)
 
 ## ⚡ Performance Optimizations
@@ -93,7 +98,10 @@ pixel/
 - Virtualized rendering of table rows to support large datasets (tested with 10K+ rows)
 - Cached queries and results with `react-query`
 
-### 🧠 Additional Ideas for Extension (Not Implemented, not enough time)
+### 🧠 Additional Ideas and Optimizations (Not Implemented, not enough time)
+- i18n support
+- Table autocomplete, user sees a list of tables he can select to query as autocomplete
+- View of All databases and tables accessable to the user for querying on the left panel
 - Query collections
 - Real-time collaboration
 - Query versioning and git-like diff

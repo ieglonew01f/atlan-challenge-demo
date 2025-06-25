@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation';
+
 export default function Page() {
-  return "hello page index";
+  redirect('/analyze/query');
 }

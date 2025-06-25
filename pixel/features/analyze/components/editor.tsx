@@ -69,12 +69,6 @@ export function QueryEditor({
           suggestOnTriggerCharacters: true,
         }}
       />
-      <div className="text-xs text-muted-foreground mt-2 text-right pr-2">
-        Press{" "}
-        <kbd className="px-1 border rounded">⌘</kbd>/
-        <kbd className="px-1 border rounded">Ctrl</kbd> +{" "}
-        <kbd className="px-1 border rounded">Enter</kbd> to run
-      </div>
     </div>
   );
 
